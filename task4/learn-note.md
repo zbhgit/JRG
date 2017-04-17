@@ -220,8 +220,32 @@
  
  7. |常见浏览器|内核|代码|
      |---|---|:---|
-     |chrome|WebKi| Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko |
+     |chrome|WebKi| Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36 |
      |IE11| Trident| Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko |
+     |Firefox|Gecko|Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0|
+     |Microsoft Edge|Edge||
+     |uc浏览器|webkit||
+     |Safari|webkit||
+
+
+ 8. HTML常用标签
+
+    |标签|含义|
+    |:----|:----|
+    |h1~h6|标题，h1代表页面最大的标题，h2二级标题……|
+    |p|段落标签，表示一个段落|
+    |a|链接标签，当需要打开网页跳转或使用锚点时使用|
+    |img|展示一张图片，当需要插如图片时使用|
+    |div| 语义为“一大块”，用于给页面划分区块，让结构更清晰|
+    |ul li|ul是无序列表，用于展示并列的内容，li是他的子元素|
+    |ol li|ol是有序列表|，用于表示带步骤或者编号的并列内容，li同样是他的子元素
+    |dl dt dd|用于展示一系列“标题，内容……”的场景|
+    |button|按钮，需要点击时使用|
+    |strong|很重要，强调性更强|
+    |em|需要强调下|
+    |iframe|用于嵌入一个页面，注意跨域操作问题|
+    |table|用于展示表格，不能用来做布局，thead tbody tfoot可省略|
+
  
 
 
