@@ -1,0 +1,178 @@
+/* add BG-img */
+body {
+  background: url("../img/bg-img.png") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+/* clear float */
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* line-center */
+.layout {
+  width: 1128px;
+  margin: 0 auto;
+}
+
+/* header start */
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  margin-top: 96px;
+  margin-bottom: 28px;
+  color: #ffffff;
+}
+
+.header p {
+  color: #ffffff;
+}
+
+/* header-over */
+
+/* navigation start*/
+.navigation {
+  margin-top: 106px;
+}
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  padding: 26px 32px;
+  list-style: none;
+  float: left;
+  background-color: #67b0d1;
+  border-right: 1px solid #78b9d6;
+}
+
+.navigation li:last-child {
+  border: none;
+}
+
+.navigation li a {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 42px;
+  text-decoration: none;
+  color: #f7fafc;
+}
+
+.navigation li .icon-add {
+  font-size: 40px;
+}
+
+/* search input */
+.navigation .search {
+  padding: 25px 35px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  width: 318px;
+}
+
+.navigation .search input {
+  padding-left: 16px;
+  width: 236px;
+  height: 42px;
+  color: #73ccf4;
+  border: none;
+  background-color: #4c9dc1;
+}
+
+.navigation .search input:focus {
+  outline: none;
+}
+
+.navigation .search input::placeholder {
+  content: 'Search the website';
+  color: #73ccf4;
+}
+
+.navigation .search .icon-search {
+  position: absolute;
+  top: 40px;
+  right: 44px;
+  color: #72ccf4;
+}
+
+/* navigation over */
+/* content start */
+.content {
+  margin-top: 45px;
+}
+
+.aside {
+  float: left;
+  width: 380px;
+}
+
+.main {
+  float: left;
+  width: 278px;
+  margin: 0 45px;
+}
+
+/* weather  */
+.weather {
+  width: 380px;
+  background-color: #3bbec0;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.weather .thumbnail span{
+  display: inline-block;
+  margin-top:-20px;
+  margin-left:36px;
+  margin-right:34px;
+  font-size: 71px;
+  line-height:156px;
+}
+.weather .detail, .weather .thumbnail {
+  display: inline-block;
+}
+.weather .detail {
+  margin-left: 76px;
+}
+.weather .detail p {
+  margin:0;
+  padding:0;
+  font-size: 14px;
+  line-height: 20px;
+}
+.weather .detail .temperature{
+  font-size: 42px;
+  padding-top:40px;
+  margin-bottom: 20px;
+}
+/* content over */
+
+/* footer start */
+
+.footer {
+  padding-top: 124px;
+  padding-bottom: 90px;
+  text-align: center;
+  color: #fff;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #7de7ec;
+
+}
+
+/* footer over */
