@@ -1,0 +1,28 @@
+div {
+  /* Positioning */
+  position: absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:100;
+  /* box-model */
+  display: block;
+  float: left;
+  width: 100px;
+  height: 100px;
+  /* typography */
+
+  font: normal 13px "Helvetica Neue",sans-serif;
+  line-height:1.5;
+  color: #333;
+  text-align: center;
+
+  /* Visual */
+  background-color: #fff;
+  border:1px solid #000000;
+  border-radius:3px;
+
+  /* Misc */
+  opacity: 1;
+}
