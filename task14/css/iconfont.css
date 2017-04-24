@@ -15,25 +15,25 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-xiaosuolvetu:before { content: "\e600"; }
+.icon-breviary:before { content: "\e600"; }
 
-.icon-jiahao:before { content: "\e601"; }
+.icon-add:before { content: "\e601"; }
 
-.icon-xiangzuo:before { content: "\e602"; }
+.icon-left:before { content: "\e602"; }
 
 .icon-minus:before { content: "\e675"; }
 
 .icon-dayu:before { content: "\e61c"; }
 
-.icon-xiangyou:before { content: "\e631"; }
+.icon-right:before { content: "\e631"; }
 
 .icon-heart:before { content: "\e64b"; }
 
 .icon-del:before { content: "\e6d0"; }
 
-.icon-iconfont35:before { content: "\e712"; }
+.icon-left-circle:before { content: "\e712"; }
 
-.icon-iconfont36:before { content: "\e713"; }
+.icon-right-circle:before { content: "\e713"; }
 
 .icon-message:before { content: "\e64f"; }
 
@@ -55,5 +55,5 @@
 
 .icon-search:before { content: "\e67a"; }
 
-.icon-add:before { content: "\e607"; }
+.icon-add-circle:before { content: "\e607"; }
 
