@@ -1,6 +1,6 @@
 /* add BG-img */
 body {
-  background: url("../img/bg-img.png") no-repeat;
+  background: url("../img/bg-img.jpg") no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
 }
