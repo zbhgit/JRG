@@ -27,7 +27,7 @@
 
 .icon-xiangyou:before { content: "\e631"; }
 
-.icon-xin:before { content: "\e64b"; }
+.icon-heart:before { content: "\e64b"; }
 
 .icon-del:before { content: "\e6d0"; }
 
@@ -35,9 +35,9 @@
 
 .icon-iconfont36:before { content: "\e713"; }
 
-.icon-tubiao15:before { content: "\e64f"; }
+.icon-message:before { content: "\e64f"; }
 
-.icon-shouyinji01:before { content: "\e6e8"; }
+.icon-radio:before { content: "\e6e8"; }
 
 .icon-tianqi:before { content: "\e603"; }
 
@@ -47,7 +47,7 @@
 
 .icon-tianqi1:before { content: "\e657"; }
 
-.icon-laba:before { content: "\e64c"; }
+.icon-voice:before { content: "\e64c"; }
 
 .icon-sunny-cloudy:before { content: "\e618"; margin:0; padding:0;}
 

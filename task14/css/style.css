@@ -10,6 +10,21 @@ body {
   *zoom: 1;
 }
 
+input:focus {
+  outline: none;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
 .clearfix:after {
   content: '';
   display: block;
@@ -44,14 +59,8 @@ body {
   margin-top: 106px;
 }
 
-.navigation ul {
-  margin: 0;
-  padding: 0;
-}
-
 .navigation li {
   padding: 26px 32px;
-  list-style: none;
   float: left;
   background-color: #67b0d1;
   border-right: 1px solid #78b9d6;
@@ -133,31 +142,109 @@ body {
   box-sizing: border-box;
 }
 
-.weather .thumbnail span{
-  display: inline-block;
-  margin-top:-20px;
-  margin-left:36px;
-  margin-right:34px;
-  font-size: 71px;
-  line-height:156px;
+/* 今天天气 */
+.weather-today {
+  padding-top: 40px;
+  padding-bottom: 30px;
+  border: 2px solid #53c6c8;
 }
+
 .weather .detail, .weather .thumbnail {
+  float: left;
+  vertical-align: middle;
+
+}
+
+.weather .thumbnail {
+  padding-left: 30px;
+  padding-right: 110px;
+}
+
+.weather .thumbnail span {
+  font-size: 70px;
+}
+
+.weather .detail p, .weather .detail h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+.weather .detail .temperature {
+  font-size: 40px;
+  font-weight: 200;
+  margin-bottom: 12px;
+}
+
+/* 地点 */
+.weather-place {
+  padding: 19px 23px 21px 29px;
+  border: 2px solid #60cacc;
+}
+
+.weather-place span {
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.weather-place .search-place {
+  float: right;
+  position: relative;
+}
+
+.weather-place .search-place input {
+  width: 126px;
+  height: 24px;
+  border: none;
+  background-color: #319ba1;
+  padding-left: 20px;
+}
+
+.weather-place .search-place .icon-search {
+  position: absolute;
+  top: 2px;
+  left: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* 7天预报 */
+.weather .weather-forecast {
+  padding:0 8px;
+}
+.weather .weather-forecast li {
+  float: left;
+  box-sizing: border-box;
+  width:52px;
+  border-right:1px solid #5bc9ca;
+  border-left:1px solid #5bc9ca;
+  padding:21px 13px 32px 17px;
+  font-size:12px;
+}
+.weather .weather-forecast li:last-child {
+  border-right:none;
+}
+.weather .weather-forecast li:first-child {
+  border-left:none;
+}
+.weather .weather-forecast .iconfont {
   display: inline-block;
+  margin:10px 0;
+  font-weight:700;
+  color: #454747;
 }
-.weather .detail {
-  margin-left: 76px;
+
+/* music */
+.music {
+  width: 380px;
+  box-sizing: border-box;
 }
-.weather .detail p {
-  margin:0;
-  padding:0;
-  font-size: 14px;
-  line-height: 20px;
+.music .music-panel li{
+  float: left;
+  padding:10px;
 }
-.weather .detail .temperature{
-  font-size: 42px;
-  padding-top:40px;
-  margin-bottom: 20px;
-}
+
+
 /* content over */
 
 /* footer start */
