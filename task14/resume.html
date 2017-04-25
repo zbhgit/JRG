@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume</title>
+  <link rel="stylesheet" href="css/iconfont.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 10px;
+      background-color: #eee;
+    }
+
+    .layout {
+      width: 1000px;
+      margin: 0 auto;
+      background-color: #fff;
+    }
+
+    .clearfix:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    ul li {
+      list-style: none;
+    }
+
+    #resume-wrapper {
+      padding-top: 76px;
+      padding-left: 60px;
+    }
+
+    #header {
+      padding-bottom: 88px;
+    }
+
+    #header .author img, #header .author {
+      float: left;
+    }
+
+    #header .contacts {
+      float: left;
+      width: 428px;
+      margin-left: 156px;
+    }
+
+    #header .name {
+      margin-left: 254px;
+      vertical-align: middle;
+    }
+
+    #header .name h3 {
+      font-size: 24px;
+      font-weight: 200;
+      padding-top: 40px;
+      padding-bottom: 8px;
+    }
+
+    #header .name p {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    #header .contacts h4 {
+      font-size: 14px;
+      padding-top: 10px;
+      padding-bottom: 6px;
+      border-bottom: 3px solid black;
+    }
+
+    #header .contacts p {
+      padding-top: 13px;
+      font-size: 12px;
+    }
+
+    #header .contacts p span {
+      font-weight: 700;
+      margin-right: 15px;
+    }
+
+    #work h4,
+    #education h4,
+    #footer h4 {
+      font-size: 14px;
+    }
+
+    .line:after {
+      content: '';
+      display: block;
+      width: 416px;
+      margin-top: 16px;
+      margin-bottom: 30px;
+      height: 1px;
+      border-bottom: 2px solid #eaeaea;
+    }
+
+    #work .item,
+    #education .item {
+      position: relative;
+      margin-right: 42px;
+      margin-left: 10px;
+      padding-left: 80px;
+      padding-bottom: 26px;
+      color: #555d5c;
+      border-left: 2px solid black;
+    }
+
+    #work .item:last-child,
+    #education .item:last-child, {
+      padding-bottom: 0;
+    }
+
+    #work .item .company,
+    #education .item .school {
+      padding-bottom: 6px;
+    }
+
+    #work .item .company span,
+    #education .item .school span,
+    #education .item p:nth-of-type(2) {
+      color: #cacecd;
+    }
+
+    #work .item p, #education .item p {
+      line-height: 24px;
+    }
+
+    .circle:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -7px;
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 6px;
+      background-color: #000;
+    }
+
+    #footer {
+      margin-top: 55px;
+      padding-bottom: 10px;
+    }
+
+    #footer .extra, #footer .skills {
+      float: left;
+    }
+
+    #footer .extra {
+      width: 416px;
+      margin-right: 126px;
+    }
+
+    #footer .extra-item {
+      position: relative;
+      padding-left: 90px;
+      padding-bottom: 25px;
+    }
+
+    #footer .extra-item {
+      font-size: 14px;
+      line-height: 24px;
+      color: #555d5c;
+    }
+
+    #footer .extra-item p:first-child {
+      padding-bottom: 10px;
+    }
+
+    #footer .extra-item .iconfont {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 24px;
+    }
+
+    #footer .skills {
+      width: 416px;
+    }
+
+    #footer .skills li {
+      float: left;
+      padding-bottom:50px;
+      width: 198px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 24px;
+      vertical-align: middle;
+
+    }
+
+    #footer .skills li span {
+      font-size: 24px;
+      font-weight: 200;
+      color: #555d5c;
+      margin-right: 32px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<div id="resume-wrapper" class="layout">
+  <div id="header" class="clearfix">
+    <div class="author ">
+      <img src="img/logo_03.png" alt="">
+      <div class="name">
+        <h3>David Smith</h3>
+        <p>Graphi & Web Deigner</p>
+      </div>
+    </div>
+    <div class="contacts">
+      <h4>CONTACTS</h4>
+      <p><span>A</span>59 Somewhere Street.NY.USA</p>
+      <p><span>M</span>12 395 394 3408</p>
+      <p><span>E</span>steve@gmail.com</p>
+      <p><span>B</span>www.behance.net/design</p>
+    </div>
+  </div>
+
+  <div id="work">
+    <h4 class="line">WORK EXPERIENCE</h4>
+    <div class="item circle">
+      <p class="company">Marketpalces/<span>2012-2013</span></p>
+      <p>
+        Go is a compiled language. It combines the development efficiency of interpreted or dynamic languages with the
+        security of static languages. It is going to be the language of choice for modern, multi-core computers with
+        networking. For these purposes, there are some problems that need to inherently be resolved at the level of the
+        language of choice, such as a richly expressive lightweight type system, a native concurrency model, and
+        strictly regulated garbage collection.
+      </p>
+    </div>
+    <div class="item circle">
+      <p class="company">Marketpalces/<span>2012-2013</span></p>
+      <p>
+        Go is a compiled language. It combines the development efficiency of interpreted or dynamic languages with the
+        security of static languages. It is going to be the language of choice for modern, multi-core computers with
+        networking. For these purposes, there are some problems that need to inherently be resolved at the level of the
+        language of choice, such as a richly expressive lightweight type system, a native concurrency model, and
+        strictly regulated garbage collection.
+      </p>
+    </div>
+    <div class="item circle">
+      <p class="company">Marketpalces/<span>2012-2013</span></p>
+      <p>
+        Go is a compiled language. It combines the development efficiency of interpreted or dynamic languages with the
+        security of static languages. It is going to be the language of choice for modern, multi-core computers with
+        networking. For these purposes, there are some problems that need to inherently be resolved at the level of the
+        language of choice, such as a richly expressive lightweight type system, a native concurrency model, and
+        strictly regulated garbage collection.
+      </p>
+    </div>
+  </div>
+  <div id="education">
+    <h4 class="line">EDUCATION</h4>
+    <div class="item circle">
+      <p class="school">Marketpalces/<span>2012-2013</span></p>
+      <p>Visual Design Communication</p>
+      <p class="description">
+        Go is a compiled language. It combines the development efficiency of interpreted or dynamic languages with the
+        security of static languages. It is going to be the language of choice for modern, multi-core computers with
+        networking. For these purposes, there are some problems that need to inherently be resolved at the level of the
+        language of choice, such as a richly expressive lightweight type system, a native concurrency model, and
+        strictly regulated garbage collection.
+      </p>
+    </div>
+    <div class="item circle">
+      <p class="school">Marketpalces/<span>2012-2013</span></p>
+      <p>Visual Design Communication</p>
+      <p class="description">
+        Go is a compiled language. It combines the development efficiency of interpreted or dynamic languages with the
+        security of static languages. It is going to be the language of choice for modern, multi-core computers with
+        networking. For these purposes, there are some problems that need to inherently be resolved at the level of the
+        language of choice, such as a richly expressive lightweight type system, a native concurrency model, and
+        strictly regulated garbage collection.
+      </p>
+    </div>
+  </div>
+  <div id="footer" class="clearfix">
+    <div class="extra">
+      <h4 class="line">EXTRA CURRICULAR ACTIVITIES</h4>
+      <div class="extra-item">
+        <p>Volunteer</p>
+        <p>Claritas est etiam processus dynamicus,quisequitur mutationem consuetudium lectorum</p>
+        <span class="iconfont">&#xe607;</span>
+      </div>
+      <div class="extra-item">
+        <p>Volunteer</p>
+        <p>Claritas est etiam processus dynamicus,quisequitur mutationem consuetudium lectorum</p>
+        <span class="iconfont">&#xe607;</span>
+
+      </div>
+    </div>
+    <div class="skills">
+      <h4 class="line">PROFESIONAL SKILLS</h4>
+      <ul>
+        <li><span class="iconfont">&#xe607;</span>HTML&CSS</li>
+        <li><span class="iconfont">&#xe607;</span>JQUERY</li>
+        <li><span class="iconfont">&#xe607;</span>JAVASCRIPT</li>
+        <li><span class="iconfont">&#xe607;</span>PHOTOSHOP</li>
+        <li><span class="iconfont">&#xe607;</span>SLIM</li>
+        <li><span class="iconfont">&#xe607;</span>ILLUSTRATOR</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
