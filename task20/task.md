@@ -6,22 +6,17 @@ var prod = {
 };
 function getTpl(data){
      var arr = [];
-      arr.push("<dl class=\"product\">" + "\n");
-      arr.push("\t" + "<dt>" + data.name + "</dt>" + "\n");
+      arr.push('<dl class="product">');
+      arr.push("<dt>" + data.name + "</dt>" );
       for(var key in data.styles){
-        arr.push("\t" + "<dd>" + data.styles[key] + "</dd>" + "\n");
+        arr.push( "<dd>" + data.styles[key] + "</dd>" );
       }
       arr.push("</dl>");
     
       return arr.join("");  
 };
-var result = getTplStr(prod);  //result为下面的字符串
-<dl class="product">
-    <dt>女装</dt>
-    <dd>短款</dd>
-    <dd>冬季</dd>
-    <dd>春装</dd>
-</dl>
+var result = getTpl(prod);
+console.log(result)
 ```
 2、写出两种以上声明多行字符串的方法
 
