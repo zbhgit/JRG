@@ -5,10 +5,15 @@ var prod = {
     styles: ['短款', '冬季', '春装']
 };
 function getTpl(data){
-     var str = '';
- 
-     str += '<dl class="product">\n' + '<dt>'+ data.name +'</dt>\n' + '<dd>'+ data.styles[0] +'</dd>\n' + '<dd>'+ data.styles[1] +'</dd>\n' + '<dd>'+ data.styles[2] +'</dd>\n'+'</dl>'
-     return str;
+     var arr = [];
+      arr.push("<dl class=\"product\">" + "\n");
+      arr.push("\t" + "<dt>" + data.name + "</dt>" + "\n");
+      for(var key in data.styles){
+        arr.push("\t" + "<dd>" + data.styles[key] + "</dd>" + "\n");
+      }
+      arr.push("</dl>");
+    
+      return arr.join("");  
 };
 var result = getTplStr(prod);  //result为下面的字符串
 <dl class="product">
