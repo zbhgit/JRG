@@ -91,7 +91,11 @@ console.log( subj.match(re) )  // ['#121212', '#AA00ef']
 题目8： 下面代码输出什么? 为什么? 改写代码，让其输出[""hunger"", ""world""].
 ```
     var str = 'hello  "hunger" , hello "world"';
-    var pat =  /hunger|world/g;
+    var pat =  /".*"/g;
     str.match(pat);
-
+    
+    // 输出[ ""hunger" , hello "world""]
+    // 因为贪婪模式下匹配重复字符是尽可能多的匹配
+    
+    // 更改  var pat = /".*?"/g;
 ```
