@@ -169,6 +169,6 @@ IE事件冒泡机制： 从最具体的元素传递到最不具体的元素
 
     </script>
 ```
-[查看效果](imgshow.html);
+[查看效果](https://zbhgit.github.io/learn-task/task24/imgshow.html);
 
 题目8： 在 github 上创建个人项目，把视频里事件兼容的函数写法放入项目，在 Readme.md里描述项目(选做题目)(暂时未做)
