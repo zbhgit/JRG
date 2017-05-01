@@ -1,3 +1,7 @@
+
+[事件读书笔记，代补充](README.md);
+
+
 题目1： DOM0 事件和DOM2级在事件监听使用方式上有什么区别？
 ```
     <input type="button" id="btn" value = "click me">
