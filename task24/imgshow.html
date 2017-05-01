@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+<ul class="ct">
+  <li data-img="1.png">鼠标放置查看图片1</li>
+  <li data-img="2.png">鼠标放置查看图片2</li>
+  <li data-img="3.png">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview">
+</div>
+<script>
+  //你的代码
+  function $(cla) {
+    return document.querySelector(cla)
+    console.log(2);
+  }
+
+  function $$(cla) {
+    return document.querySelectorAll(cla)
+  }
+  //初始化照片
+  addImg('1.png');
+
+  $('.ct').addEventListener('mouseover', showImg,false);
+
+
+  function showImg(event) {
+    var event = event || window.event;
+    var target = event.target || event.srcElement;
+    var url = target.getAttribute('data-img');
+    addImg(url);
+  }
+
+  function addImg(url) {
+
+    var img = document.createElement('img');
+    img.src = 'img/'+url;
+    $('.img-preview').innerHTML = '';
+    $('.img-preview').appendChild(img);
+  }
+
+
+</script>
+</body>
+
+</html>
+
