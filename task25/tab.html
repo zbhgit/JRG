@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tab</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    li {
+      list-style: none;
+    }
+    .clearfix:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .clearfix {
+      *zoom:1;
+    }
+
+    .tab-container {
+      margin:120px auto;
+      border:1px solid ;
+      width: 450px;
+      height:200px;
+    }
+    .tab-nav {
+      width: 450px;
+      box-sizing:border-box;
+    }
+    .tab-nav li {
+      float: left;
+      width:150px;
+      text-align: center;
+      padding:10px 0;
+      box-sizing:border-box;
+      border-right:1px solid;
+      border-bottom:1px solid;
+      cursor: pointer;
+    }
+    .tab-nav li:last-child {
+      border-right:none;
+    }
+    .active {
+      background-color: #333;
+      color: #fff;
+    }
+    .tab-content li {
+      display: none;
+    }
+
+    .tab-content .show {
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+<div class="tab-container">
+  <ul class="tab-nav clearfix">
+    <li class="active">tab1</li>
+    <li>tab2</li>
+    <li>tab3</li>
+  </ul>
+  <ul class="tab-content">
+    <li class="show">内容1</li>
+    <li>内容2</li>
+    <li>内容3</li>
+  </ul>
+</div>
+<script>
+  var tabNav = document.querySelector('.tab-nav');
+  var tabContent = document.querySelector('.tab-content');
+
+  tabNav.addEventListener('click',function(event){
+    var target = event.target;
+    var lis = this.children;
+    var contentLis = tabContent.children;
+    var len = lis.length;
+    var index;
+    if(target.nodeName.toLocaleLowerCase() === 'li' ){
+      for(var i=0;i<len;i++) {
+        lis[i].classList.remove('active');
+      }
+      target.classList.add('active');
+    }
+
+    index = [].indexOf.call(lis,target);
+    for(var j=0;j < contentLis.length;j++) {
+      console.log('success');
+      contentLis[j].classList.remove('show');
+    }
+    contentLis[index].classList.add('show');
+
+  },false);
+</script>
+</body>
+</html>
