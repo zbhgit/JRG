@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html {
+      height:1500px;
+    }
+    .div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid;
+    }
+    ul,
+li {
+  padding: 0;
+  margin: 0;
+}    
+li {
+  list-style: none;  
+}
+#content {
+  width: 600px;
+  margin: 0 auto;
+}
+#newsList > li{
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
+#newsList > li:hover {
+  background-color: #87B7FF;
+  color: #fff;
+}
+.btn {
+  width: 100px;
+  height: 50px;
+  display: block;
+  margin: 10px auto;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 8px #ccc;
+  background: #4CAF50;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.btn:hover {
+  background-color: #008CBA; /* Green */
+  color: white;
+}
+.btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+  </style>
+  <script src="jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+  <h3>要求7</h3>
+  <div>
+    <button id="btn">点我变色</button>
+    <p class="scroll">当先垂直滚动距离<span>0</span></p>
+    <div class="div">
+      变色的DIV
+    </div>
+    <div>
+    <input id="user" type="text">
+
+    </div>
+    <div>
+      <select name="test" id="test">
+        <option value="men">男</option>
+        <option value="women">女</option>
+        <option value="middle">中性</option>                                        
+      </select>
+    </div>
+  </div>
+
+  <div id="content">
+    <ul id="newsList">     
+    </ul>
+    <button id="load-more" class="btn">加载更多</button>
+  </div>
+  <script>
+    $('#btn').on('click', function () {
+      $(this).css('background','red');
+      setTimeout(function(){
+        $('#btn').css('background','blue');
+      },1000);
+    });
+
+    $(window).on('scroll',function(){
+      $('.scroll span').text(parseInt($(window).scrollTop())+'px');
+    });
+
+    $('.div').on('mouseenter',function(){
+      $(this).css('background','red');
+    })
+    $('.div').on('mouseleave',function(){
+      $(this).css('background','white');
+    })
+
+    $('#user').on('focus',function(){
+      $(this).css("outlineColor","blue");
+    })
+     $('#user').on('input',function(){
+       $(this).val($(this).val().toUpperCase())
+    })
+     $('#user').on('blur',function(){
+       $(this).css("outlineColor","none");
+      console.log($(this).val());
+    })
+
+    $('#test').on('change',function(){
+      console.log($(this).find('option:selected').text());
+
+    });
+  </script>
+  <script>
+     var $newsList = $('#newsList');
+     var $btn = $('#load-more');
+     var $pageIndex = 0;
+     var lock = true;
+     $btn.on('click', function() {
+         if(!lock) {
+         return;
+         }
+         lock = false;
+         $.get('/loadMore', {
+         pageIndex: $pageIndex
+         }).done(function(ret) {
+         $pageIndex+=5;
+         appendHtml(ret);
+         lock = true;
+         }).fail(function() {
+            alert('系统异常');
+      });
+     });
+    
+     function appendHtml(news) {
+        var html = '';
+        $.each(news, function(index, val) {
+            html += '<li>' + news[index] + '</li>' ;
+        });
+        $newsList.append(html);
+     }
+  </script> 
+</body>
+
+</html>
