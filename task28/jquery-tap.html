@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TAB</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .clearfix {
+      *zoom: 1;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .tab-container {
+      margin: 20px auto;
+      width: 600px;
+      height: 400px;
+    }
+
+    .tab-nav li {
+      float: left;
+      border: 1px solid;
+    }
+
+    .tab-nav li a {
+      display: inline-block;
+      padding: 10px 15px;
+      color: black;
+    }
+
+    .tab-nav li.active {
+      background-color: #333;
+    }
+
+    li.active a {
+      color: white;
+    }
+
+    .panel-list {
+      display: none;
+    }
+
+    .panel-list.active {
+      display: block;
+    }
+
+    .prod-list {
+      position: relative;
+      float: left;
+      width: 200px;
+      height: 180px;
+      border: 1px solid #eee;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .prod-list h4 {
+      line-height: 1.5;
+    }
+
+    .prod-list .buyNow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      width: 200px;
+      height: 100%;
+      text-align: center;
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+    .prod-list .buyNow.active {
+      display: block;
+    }
+
+    .prod-list .buyNow a {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -50px;
+      margin-top: -20px;
+      width: 100px;
+      height: 40px;
+      display: inline-block;
+      padding: 10px 10px;
+      background-color: #fff;
+      border-radius: 4px;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tab-container">
+    <div class="tab-nav clearfix">
+      <ul>
+        <li class="active"><a href="javascript:">热门</a></li>
+        <li><a href="javascript:">珠宝首饰</a></li>
+        <li><a href="javascript:">奢侈品</a></li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <ul class="panel">
+        <li class="panel-list active ">
+          <ul class="prod">
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+          </ul>
+        </li>
+        <li class="panel-list">
+          <ul class="prod">
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="panel-list">
+          <ul class="prod">
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+
+              </div>
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+   <div class="tab-container">
+    <div class="tab-nav clearfix">
+      <ul>
+        <li class="active"><a href="javascript:">热门</a></li>
+        <li><a href="javascript:">珠宝首饰</a></li>
+        <li><a href="javascript:">奢侈品</a></li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <ul class="panel">
+        <li class="panel-list active ">
+          <ul class="prod">
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+          </ul>
+        </li>
+        <li class="panel-list">
+          <ul class="prod">
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="panel-list">
+          <ul class="prod">
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+
+              </div>
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+   <div class="tab-container">
+    <div class="tab-nav clearfix">
+      <ul>
+        <li class="active"><a href="javascript:">热门</a></li>
+        <li><a href="javascript:">珠宝首饰</a></li>
+        <li><a href="javascript:">奢侈品</a></li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <ul class="panel">
+        <li class="panel-list active ">
+          <ul class="prod">
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手 猴哥款</h4>
+                <p>￥405</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+          </ul>
+        </li>
+        <li class="panel-list">
+          <ul class="prod">
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金转运珠 猴哥款</h4>
+                <p>￥100</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="panel-list">
+          <ul class="prod">
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+
+              </div>
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+            <li class=prod-list>
+              <div class="detail">
+                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                <h4>珂兰 黄金手链 3D猴哥款</h4>
+                <p>￥3000</p>
+              </div>
+              <div class="buyNow">
+                <a href="javascript:">立即购买</a>
+              </div>
+
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+  <script>
+    var $panelList = $('.panel-list');
+    var $prodList = $('.prod-list')
+    $('.tab-nav ul li').on('click',function(event){
+      var $cur = $(this);
+      var $index = $cur.index();
+      $cur.siblings().removeClass('active');
+      $cur.addClass('active');
+      console.log($cur.parents('tab-container'));
+
+      $cur.parents('.tab-container').find('li.panel-list').removeClass('active');
+      $cur.parents('.tab-container').find('.panel-list').eq($index).addClass('active');
+    });
+    $prodList.on('mouseenter', function (event) {
+      $(this).find('.buyNow').addClass('active');
+    });
+    $prodList.on('mouseleave', function (event) {
+      $(this).find('.buyNow').removeClass('active');
+    });
+  </script>
+</body>
+
+</html>
