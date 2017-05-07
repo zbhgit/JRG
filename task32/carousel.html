@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carousel</title>
+    <script src="jquery-3.2.1.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .carousel {
+            position: relative;
+            width: 300px;
+            height: 168px;
+            overflow: hidden;
+        }
+
+        .carousel:hover .btn {
+            display: block;
+        }
+
+        .carousel .img-ct {
+            position: absolute;
+            width: 300px;
+            height: 168px;
+        }
+
+        .carousel .img-ct:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .carousel .img-ct>li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .carousel .img-ct img {
+            width: 300px;
+            height: 168px;
+        }
+
+        .carousel .btn {
+            display: none;
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 50%;
+            background-color: #333;
+            opacity: 0.6;
+        }
+
+        .carousel .btn-pre {
+            left: 15px;
+        }
+
+        .carousel .btn-next {
+            right: 15px;
+        }
+
+        .bullet-container {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            text-align: center;
+        }
+
+        .carousel .bullet {
+            display: inline-block;
+        }
+
+        .carousel .bullet:after {
+            content: "";
+            display: block;
+            clear: both;
+            margin-top: -12px;
+        }
+
+        .carousel .bullet>li {
+            float: left;
+            width: 20px;
+            height: 6px;
+            border-radius: 3px;
+            margin-right: 3px;
+            background-color: #fff;
+        }
+
+        .carousel .bullet>li.active {
+            background-color: #333;
+        }
+
+        .carousel .bullet>li:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <ul class="img-ct">
+            <li data-img=0><a href="javascript:"><img src="img/1.jpg" alt=""></a></li>
+            <li data-img=1><a href="javascript:"><img src="img/2.jpg" alt=""></a></li>
+            <li data-img=2><a href="javascript:"><img src="img/3.jpg" alt=""></a></li>
+            <li data-img=3><a href="javascript:"><img src="img/4.jpg" alt=""></a></li>
+        </ul>
+        <a class="btn btn-pre" href="javascript:">&lt;</a>
+        <a class="btn btn-next" href="javascript:">&gt;</a>
+        <div class="bullet-container">
+            <ul class="bullet">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+    </div>
+    <script>
+        //   $(function(){
+        var $imgCt = $('.img-ct'),
+            $preBtn = $('.btn-pre'),
+            $nextBtn = $('.btn-next'),
+            $bullet = $('.bullet');
+        var $imgs = $('.carousel .img-ct >li');
+        var $firstImg = $imgCt.find('li').first();
+        var $lastImg = $imgCt.find('li').last();
+        var $bullets = $('.carousel .bullet li');
+        var isAnimate = false;
+        var $carousel = $('.carousel');
+
+        var curPageIndex = 0;
+        var imgLength = $imgCt.children().length;
+        var imgCount = $imgs.length;
+        var imgWidth = $imgs.width();
+
+        play(curPageIndex);
+
+        // 复制头尾元素
+        // $imgCt.prepend($lastImg.clone());
+        // $imgCt.append($firstImg.clone());
+        // 设置容器宽度
+        // $imgCt.width($imgCt.children().length * $firstImg.width());
+        // $imgCt.css('left', '-300px');
+
+
+        // 动画函数1
+        // function playNext(num) {
+        //   if (isAnimate) return;
+        //   isAnimate = true;
+        //   $imgCt.animate({
+        //     left: '-='+num*imgWidth
+        //   }, function () {
+        //     curPageIndex += num;
+        //     if (curPageIndex === imgLength) {
+        //       $imgCt.css('left', -imgWidth);
+        //       curPageIndex = 0;
+        //     }
+        //     isAnimate = false;
+        //     setBullet();
+        //   });
+
+
+        // }
+
+        function play(num) {
+            if (isAnimate) return;
+            isAnimate = true;
+            $imgs.eq(curPageIndex).fadeOut(500);
+            $imgs.eq(num).fadeIn(500, function () {
+                isAnimate = false;
+            });
+
+            curPageIndex = num;
+            setBullet();
+        }
+
+        // 按钮点击 
+        $preBtn.on('click', function () {
+            play((imgCount + curPageIndex - 1) % imgCount);
+        })
+        $nextBtn.on('click', function () {
+            play((curPageIndex + 1) % imgCount);
+        })
+
+        $bullets.click(function () {
+            var index = $(this).index();
+
+            play(index);
+        });
+        // 设置小标
+        function setBullet() {
+            $bullets.removeClass('active').eq(curPageIndex).addClass('active');
+        }
+
+        // 自动播放
+        var timerId = setInterval(function () {
+            play((curPageIndex + 1) % imgCount);
+        }, 2000, (curPageIndex + 1) % imgCount);
+
+        $carousel.on('mouseenter', function () {
+            clearInterval(timerId);
+        });
+        $carousel.on('mouseleave', function () {
+            timerId = setInterval(function () {
+                play((curPageIndex + 1) % imgCount);
+            }, 2000);
+        });
+ //   });
+    </script>
+</body>
+
+</html>
