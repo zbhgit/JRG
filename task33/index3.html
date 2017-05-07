@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>木桶布局</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link href="" rel="stylesheet">
+  <script src="jquery-3.2.1.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .img-preview {
+      width: 1000px;
+      margin: 0 auto;
+    }
+
+    .img-row {
+      margin-bottom: 8px;
+    }
+
+    .img-row:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .img-box {
+      float: left;
+    }
+
+    .img-line .img-box:first-child {
+      padding-left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="img-preview">
+
+  </div>
+
+  <script>
+    // 实现原理，高度相同，撑满整个容器宽度，如果放不下则移到下一行，对本行图片进行等比拉伸，使其充满容器宽度 
+    // 定义构造函数
+    function Barrels($ct) {
+      this.$ct = $ct;
+      this.baseHeight = 200; // 初始宽度值
+      this.rowList = [];
+      this.loadImg();
+
+    }
+
+    Barrels.prototype = {
+
+      loadImg: function () { // 加载图片
+        var _this = this;    // 绑定this
+        var imgUrls = this.getImgUrls(40);  // 获取数据
+        $.each(imgUrls, function (idx, url) {    //
+          var img = new Image();   // 利用图片对象的加载事件，获取其宽高
+          img.src = url;
+          img.onload = function () {
+            var originWidth = img.width,
+              originHeight = img.height,
+              ratio = originWidth / originHeight;
+            console.log(originWidth, originHeight)
+            var imgInfo = {
+              target: $(img),   // 转变为jquery对象
+              width: _this.baseHeight * ratio,
+              height: _this.baseHeight,
+              ratio: ratio
+            };
+            _this.render(imgInfo);   // 渲染DOm元素
+          }
+        });
+      },
+
+
+      render: function (imgInfo) {
+        var _this = this;
+        var rowList = this.rowList,
+          rowWidth = 0,
+          rowHeight = 0,
+          clientWidth = this.$ct.width(),
+          lastImgInfo = imgInfo;
+
+        this.rowList.push(imgInfo);
+
+        $.each(rowList, function (idx, imgInfo) {
+          rowWidth += imgInfo.width;
+          if (rowWidth > clientWidth) {
+            rowList.pop();
+            rowWidth = rowWidth - lastImgInfo.width;
+            rowHeight = clientWidth * _this.baseHeight / rowWidth;
+
+            _this.createRow(rowHeight);
+            _this.rowList = [];
+            _this.rowList.push(lastImgInfo);
+          }
+        });
+      },
+
+      createRow: function (rowHeight) {
+        var $rowCt = $('<div class="img-row"></div>');
+        $.each(this.rowList, function (idx, imgInfo) {
+          var $imgCt = $('<div class="img-box"></div>'),
+            $img = imgInfo.target;
+          $img.height(rowHeight);
+          $imgCt.append($img);
+          $rowCt.append($imgCt);
+        });
+        this.$ct.append($rowCt);
+
+
+      },
+      getImgUrls: function (num) {
+        var color, width, height, urls = [];
+        for (var i = 0; i < num; i++) {
+          color = Math.random().toString(16).substring(2, 8);
+          width = Math.floor(Math.random() * 100 + 50);
+          height = Math.floor(Math.random() * 30 + 50);
+          urls.push("http://placehold.it/" + width + "x" + height + "/" + color + "/fff");
+        }
+        // $.ajax({
+        //   url: 'http://platform.sina.com.cn/slide/album_tech',
+        //   dataType: 'jsonp',
+        //   jsonp: "jsoncallback",
+        //   data: {
+        //     app_key: '1271687855',
+        //     num: 40,
+        //     page: 1
+        //   }
+        // }).done(function (ret) {
+        //   for(var i=0;i<ret.data.length;i++){
+        //     urls.push(ret.data[i].img_url);
+        //   }
+        // });
+        return urls;
+      }
+    }
+    var barrels = new Barrels($('.img-preview'));
+  </script>
+
+
+
+</body>
+
+</html>
