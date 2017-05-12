@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ul,
+    li {
+      list-style: none;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .tab-header {
+      display: flex;
+      text-align: center;
+    }
+
+    .tab-header>li {
+      flex: 1;
+      padding: 6px 0;
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .tab-content {
+      width: 100%;
+      text-align: center;
+    }
+
+    .tab-content>li {
+      display: none;
+    }
+
+    .tab-header>li.active {
+      background: #333;
+      color: #fff;
+      
+    }
+
+    .tab-content>li.active {
+      display: block;
+      height:200px;
+      line-height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tab">
+    <ul class="tab-header">
+      <li class="active">tab1</li>
+      <li>tab2</li>
+      <li>tab2</li>
+      <li>tab2</li>
+    </ul>
+    <ul class="tab-content">
+      <li class="active">content 1</li>
+      <li>content 2</li>
+      <li>content 3</li>
+      <li>content 4</li>
+    </ul>
+  </div>
+  <div class="tab">
+    <ul class="tab-header">
+      <li class="active">tab1</li>
+      <li>tab2</li>
+      <li>tab2</li>
+      <li>tab2</li>
+    </ul>
+    <ul class="tab-content">
+      <li class="active">content 1</li>
+      <li>content 2</li>
+      <li>content 3</li>
+      <li>content 4</li>
+    </ul>
+  </div>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script>
+    // function Tab(container) {
+    //   this.container = container;
+    //   this.init();
+    //   this.bindEvent()
+    // }
+    // Tab.prototype.init = function () {
+    //   var tab = this;
+
+    // }
+    // Tab.prototype.bindEvent = function () {
+
+    // }
+    function Tab(container) {
+      this.container = container;
+      this.init();
+      this.bindEvent();
+    }
+    Tab.prototype.init = function () {
+      this.tabList = this.container.querySelectorAll('.tab-header>li');
+      this.tabPanels = this.container.querySelectorAll('.tab-content>li');
+    }
+    Tab.prototype.bindEvent = function(){
+      var tab = this;
+      tab.tabList.forEach(function(tabLi){
+        tabLi.onclick = function(e){
+          var target = e.target;
+          var index = [].indexOf.call(tab.tabList,target);
+          tab.tabList.forEach(function(li){
+            li.classList.remove('active');
+          });
+          target.classList.add('active');
+          tab.tabPanels.forEach(function(panel){
+            panel.classList.remove('active');
+          });
+          tab.tabPanels[index].classList.add('active');
+        }
+      });
+    }
+
+    new Tab(document.querySelectorAll('.tab')[0]);
+    new Tab(document.querySelectorAll('.tab')[1]);
+    
+  </script>
+</body>
+
+</html>

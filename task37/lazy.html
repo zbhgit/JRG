@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>懒加载任务题</title>
+  <style media="screen">
+    .ct {
+      width: 1000px;
+      margin: 0 auto;
+    }
+
+    img {
+      margin: 0;
+      padding: 0;
+    }
+
+    .ct img {
+      width: 300px;
+      height: 168px;
+      float: left;
+      margin: 10px;
+    }
+
+    .ct:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .hello,
+    .world {
+      float: left;
+      border: 1px solid #ccc;
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ct">
+    <img src="img/1.jpg" data-src="img/1.jpg" alt="">
+    <img src="img/2.jpg" data-src="img/2.jpg" alt="">
+    <img src="img/3.jpg" data-src="img/3.jpg" alt="">
+    <img src="img/4.jpg" data-src="img/4.jpg" alt="">
+    <img src="img/2.jpg" data-src="img/2.jpg" alt="">
+    <img src="img/3.jpg" data-src="img/3.jpg" alt="">
+    <img src="img/4.jpg" data-src="img/4.jpg" alt="">
+    <img src="img/2.jpg" data-src="img/2.jpg" alt="">
+    <img src="img/2.jpg" data-src="img/2.jpg" alt="">
+    <img src="img/3.jpg" data-src="img/3.jpg" alt="">
+    <img src="img/4.jpg" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/3.jpg" alt="">
+    <img src="" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/3.jpg" alt="">
+    <img src="" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt=""><img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/3.jpg" alt="">
+    <img src="" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt=""><img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/3.jpg" alt="">
+    <img src="" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt=""><img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/3.jpg" alt="">
+    <img src="" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt=""><img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/3.jpg" alt="">
+    <img src="" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt=""><img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/3.jpg" alt="">
+    <img src="" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt=""><img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/3.jpg" alt="">
+    <img src="" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt=""><img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/3.jpg" alt="">
+    <img src="" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt=""><img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/3.jpg" alt="">
+    <img src="" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt=""><img src="" data-src="img/2.jpg" alt="">
+    <img src="" data-src="img/3.jpg" alt="">
+    <img src="" data-src="img/4.jpg" alt="">
+    <img src="" data-src="img/2.jpg" alt="">
+
+    <p class="hello">hello</p>
+    <p class="world">world</p>
+  </div>
+
+
+
+  <script src="./jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    function Exposure($target, callback) {
+      this.$target = $target;
+      this.callback = callback; //callback函数名
+      this.bind();
+      this.check();
+    }
+
+    Exposure.prototype.bind = function () {
+      var _this = this;
+      $(window).on('scroll', function () {
+        if (!_this.$target.data('isLoaded')) { //设置data为了防止重复加载图片
+          _this.check();
+        }
+      });
+    }
+
+    Exposure.prototype.check = function () {
+      var _this = this;
+      if (this.isShow(this.$target)) {
+        setTimeout(function () {
+          _this.callback(_this.$target);
+        }, 1000);
+        this.$target.data('isLoaded', true);
+      }
+    }
+
+    Exposure.prototype.isShow = function () {
+      var windowHeight = $(window).height(),
+        scrollTop = $(window).scrollTop(),
+        offsetTop = this.$target.offset().top,
+        nodeHeight = this.$target.height()
+      if (offsetTop < windowHeight + scrollTop && scrollTop < offsetTop + nodeHeight) {
+        return true;
+      } else {
+        return false;
+      }
+      //console.log(1);
+    }
+
+    var Lazy = (function () {
+
+      return {
+        init: function ($target, callback) {
+          $target.each(function (idx, target) {
+            new Exposure($(target), callback);
+          });
+        }
+      }
+
+    })()
+
+    Lazy.init($('.hello'), function ($node) {
+      $node.text($node.text() + '123'); //虽然防止了图片重复加载，但是这里也防止了重复加载了，不知道怎么办？
+    });
+    Lazy.init($('.world'), function ($node) {
+      $node.text($node.text() + '456');
+    });
+    Lazy.init($('.ct img'), function ($node) {
+      showImg($node);
+    });
+
+    function showImg($img) {
+      imgUrl = $img.attr('data-src');
+      $img.attr('src', imgUrl);
+    }
+  </script>
+</body>
+
+</html>

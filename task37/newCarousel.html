@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Carousel</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .carousel {
+      position: relative;
+      width: 300px;
+      height: 168px;
+      overflow: hidden;
+    }
+
+    .carousel:hover .btn {
+      display: block;
+    }
+
+    .carousel .img-ct {
+      position: absolute;
+      width: 1200px;
+      height: 168px;
+    }
+
+    .carousel .img-ct:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .carousel .img-ct>li {
+      float: left;
+    }
+
+    .carousel .img-ct img {
+      width: 300px;
+      height: 168px;
+    }
+
+    .carousel .btn {
+      display: none;
+      position: absolute;
+      top: 50%;
+      margin-top: -15px;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 20px;
+      text-decoration: none;
+      color: #fff;
+      border-radius: 50%;
+      background-color: #333;
+      opacity: 0.6;
+    }
+
+    .carousel .btn-pre {
+      left: 15px;
+    }
+
+    .carousel .btn-next {
+      right: 15px;
+    }
+
+    .bullet-container {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 10px;
+      text-align: center;
+    }
+
+    .carousel .bullet {
+      display: inline-block;
+    }
+
+    .carousel .bullet:after {
+      content: "";
+      display: block;
+      clear: both;
+      margin-top: -12px;
+    }
+
+    .carousel .bullet>li {
+      float: left;
+      width: 20px;
+      height: 6px;
+      border-radius: 3px;
+      margin-right: 3px;
+      background-color: #fff;
+    }
+
+    .carousel .bullet>li.active {
+      background-color: #333;
+    }
+
+    .carousel .bullet>li:last-child {
+      margin-right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="carousel">
+    <ul class="img-ct">
+      <li data-img=0><a href="javascript:"><img src="img/1.jpg" alt=""></a></li>
+      <li data-img=1><a href="javascript:"><img src="img/2.jpg" alt=""></a></li>
+      <li data-img=2><a href="javascript:"><img src="img/3.jpg" alt=""></a></li>
+      <li data-img=3><a href="javascript:"><img src="img/4.jpg" alt=""></a></li>
+    </ul>
+    <a class="btn btn-pre" href="javascript:">&lt;</a>
+    <a class="btn btn-next" href="javascript:">&gt;</a>
+    <div class="bullet-container">
+      <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+  </div>
+  <script>
+    /**
+    * 轮播组件
+    *
+    *
+    */
+    
+    function Carousel(options) {
+      this.$container = options.container;
+      this.$imgWrapper = options.imgWrapper;
+      this.$pre = options.pre;
+      this.$next = options.next;
+      this.$bullet = options.bullet;
+      this.autoPlay = options.autoPlay;
+      this.init();
+    }
+
+    Carousel.prototype.init = function () {
+      this._isAnimate = false;
+      this._currentIndex = 0;
+      this._imgLength = this.$imgWrapper.children().length
+      this._cloneElement();
+    }
+
+    Carousel.prototype._cloneElement = function () {
+      var $imgWrapper = this.$imgWrapper;
+      var $imgs = $imgWrapper.find('li');
+      var $firstImg = $imgs.first();
+      var $lastImg = $imgs.last();
+      this._imgWidth = $firstImg.width();
+      $imgWrapper.prepend($lastImg.clone());
+      $imgWrapper.append($firstImg.clone());
+      $imgWrapper.width(this.$imgWrapper.children().length * this._imgWidth);
+      $imgWrapper.css('left', '-300px');
+      this._bindEvent();
+      this._auto();      
+    }
+
+
+    Carousel.prototype._play = function (num) {
+      var carousel = this;
+      if (this._isAnimate) {
+        return;
+      };
+      this._isAnimate = true;
+      this.$imgWrapper.animate({
+        left: '+=' + num * this._imgWidth
+      }, function(){
+        carousel._resetImg(num);
+      })
+    }
+
+
+    Carousel.prototype._resetImg = function (num) {
+      this._currentIndex -= num;
+      if (this._currentIndex === -1) {
+        this.$imgWrapper.css('left', -this._imgWidth * this._imgLength);
+        this._currentIndex = this._imgLength - 1;
+      }
+      if (this._currentIndex === this._imgLength) {
+        this.$imgWrapper.css('left', -this._imgWidth);
+        this._currentIndex = 0;
+      }
+      this._isAnimate = false;        
+      this._setBullet();
+    }
+
+
+    Carousel.prototype._bindEvent = function () {
+      var Carousel = this;
+      this.$pre.on('click', function () {
+        Carousel._play(1);
+      });
+      this.$next.on('click', function () {
+        Carousel._play(-1);
+      });
+      this.$bullet.children().on('click',function(e){
+        var num = Carousel._currentIndex - $(this).index();
+        Carousel._play(num);
+      });
+      this.$container.on('mouseenter',function(){
+        clearInterval(Carousel.timerId);
+      });
+      this.$container.on('mouseleave',function(){
+        Carousel.timerId= setInterval(function(){
+          Carousel._play(-1);
+        },2000);
+      });
+    }
+
+    Carousel.prototype._setBullet = function (){
+      this.$bullet.children().removeClass('active').eq(this._currentIndex).addClass('active');
+    }
+
+    Carousel.prototype._auto = function (){
+      var carousel = this;
+      if(this.autoPlay === true) {
+        carousel.timerId= setInterval(function(){
+          carousel._play(-1);
+        },2000)
+      }
+    }
+
+
+
+
+
+    new Carousel({
+      container: $('.carousel'),  // 外容器元素
+      imgWrapper: $('.img-ct'),   // 图片列表
+      autoPlay: false,             // 是否自动播放
+      pre: $('.btn-pre'),         // 前按钮元素
+      next: $('.btn-next'),       // next按钮元素
+      bullet: $('.bullet')         // 小图标按钮
+    });
+  </script>
+</body>
+
+</html>
