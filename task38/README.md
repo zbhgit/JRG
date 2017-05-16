@@ -126,7 +126,75 @@ require.js 加载的模块，采用AMD规范。也就是说模块必须按照AMD
 
 2. CMD 规范
 
+
+很多时候，我们会发现，我们在首屏的时候，其实没必要一次性加载name多JS文件，更多的我们希望js文件在需要的时候才去加载。代表sea.js
+
+```
+/*
+* define
+* define(id?,deps?,factory)
+* CMD推崇依赖就近，所以一般不再define的参数中写依赖，在factory中写
+* factory有三个参数
+*
+* function(require,exports,module)
+* require是一个方法，接受模块标识作为唯一参数，用来获取其他模块提供的接口
+* exports是一个对象，用来想外提供模块接口
+* module是个对象，上面存储了与当前模块相关的属性和方法
+*/
+
+//在a.js中定义模块
+define(function(require,exports,module){
+    var $ = require("jquery.js")
+    // dosomething with jquery
+    exports.foo = something
+})
+//在c.js中使用模块
+defind(function(require,exports,module){
+    var a = require('./a.js')
+    a.foo//do something with a.foo函数
+    exports.bar = thisthing//本模块输出的接口
+})
+
+```
+
 [CMD与AMD的最大的不同](https://www.douban.com/note/283566440/)
+
+
+3. CommonJS
+
+CommonJS是node采用的模块化规范，采用同步加载模块的方式，这个在服务端是完全没有问题的。
+* 一个单独文件就是一个模块，每个模块都是一个单独的作用域，在模块内部定义的变量，无法被其他模块读取，除非定义为global对象的属性。
+
+* 模块输出： 模块只有一个出口，module.exports对象，我们需要把模块输出的内容放入该对象。
+
+* 加载模块：加载模块使用require方法，该方法读取一个文件并执行，返回文件内部的module.exports对象，如果请求的模块不能返回，那么‘require’必须抛出一个错误。
+
+
+```
+    //模块定义model.js
+    
+    var name = "Array"
+    
+    function printName(){
+        console.log(name);
+    }
+    function printFullName(firstName){
+        console.log(firstName + name)
+    }
+    module.exports = {
+        printName: printName;
+        printFullName: printFullName
+    }
+    
+    //加载模块
+    var nameModule = require("./model.js")
+    nameModule.printName() // "Array"
+    nameModule.printFullName("Bob") // "Bob Array"
+    
+    应用 ：因为require是同步的，所以主要是在服务器端使用
+    浏览器断加载JavaScript是异步的，所以传统的CommonJs在浏览器环境中无法正常加载
+
+```
 
 
 
