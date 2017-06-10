@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Float</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .container {
+            width: 800px;
+            height: 100%;
+            margin:0 auto;
+            font-size:0;
+            background-color: #ffffd7;
+
+        }
+        .nav {
+            width: 100%;
+            background-color: #432342;
+        }
+        .nav ul {
+            list-style: none;
+        }
+        .nav li {
+             display: inline-block;
+            position: relative;
+        }
+        .nav li a {
+            display: inline-block;
+            padding:10px 30px;
+            font-size:16px;
+            color: #eeeeee;
+            text-decoration: none;
+            border-right:1px solid #ffffd7;
+        }
+        .nav li a:hover {
+            background-color: #222222;
+            color: #fff;
+        }
+        .nav li .last {
+            border:none;
+        }
+        .content {
+            width:100%;
+            height:600px;
+        }
+        iframe {
+            width:100%;
+            height:100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+   <div class="nav">
+       <ul>
+           <li><a href="./alert.html" target="inner">alert</a></li>
+           <li><a href="./form.html" target="inner">表单</a></li>
+           <li><a href="modal.html" target="inner">模态框</a></li>
+           <li><a href="nav.html" target="inner" class="last">导航栏</a></li>
+       </ul>
+   </div>
+   <div class="content">
+       <iframe src="alert.html" frameborder="0" name="inner"></iframe>
+   </div>
+</div>
+</body>
+</html>

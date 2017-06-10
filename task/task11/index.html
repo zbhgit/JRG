@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .container {
+            max-width: 960px;
+            margin:0 auto;
+        }
+        #header {
+            background-color: red;
+        }
+        #content {
+            height:400px;
+            background-color: blue;
+        }
+        #footer {
+            height:50px;
+            background-color: green;
+        }
+        nav:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        nav ul li {
+            float: left;
+            list-style:none;
+
+        }
+        nav ul a {
+            padding:10px 14px;
+            text-decoration: none;
+            color: #fff;
+            display: inline-block;
+        }
+        nav ul a:hover {
+            background-color: #531623;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="header">
+        <nav>
+            <ul>
+                <li><a href="index.html">单列</a></li>
+                <li><a href="single-tonglan.html">单列通栏</a></li>
+                <li><a href="two.html">双栏</a></li>
+                <li><a href="three.html">三栏</a></li>
+                <li><a href="shengbei.html">圣杯布局</a></li>
+                <li><a href="two-chibang.html">双飞翼布局</a></li>
+                <li><a href="example.html">案例</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="content">content</div>
+    <div id="footer">footer</div>
+</div>
+</body>
+</html>
