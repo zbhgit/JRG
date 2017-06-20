@@ -90,16 +90,21 @@
 8.ICON五种实现方式
 
 * image
-    > 注意事项
+  > 注意事项
     
-        1. img的大小设置
-        2. img的vertical-align
-        3. 请求数过多
+    1. img的大小设置
+    2. img的vertical-align
+    3. 请求数过多
 
 * CSS Sprite
-
+  >注意事项
+    1. [制作地址](https://www.toptal.com/developers/css/sprite-generator)
+    2. 无法缩放
+    3. 修改麻烦
 * Icon Font
-
+    1. 制作字体
+    2. 声明font-family
+    3. 使用font-family
 * CSS icon
 
 * SVG

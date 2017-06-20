@@ -29,8 +29,16 @@
  position: absolute | fixed;
  
  （3） 结合CSS特性的通用清除浮动方案，其本质还是第1种方法。
- .clearfix{*zoom: 1;}
- .clearfix:after{content: ””; display: block; clear: both;}
+ ```
+  .clearfix{
+    *zoom: 1;
+  }
+  .clearfix:after{
+    content: ””; 
+    display: block; 
+    clear: both;
+  }
+ ```
 3. 有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？
 
 

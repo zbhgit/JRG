@@ -16,4 +16,11 @@
 
   * [预热](task/task6/css.md)
 
-  * [选择器]
+  * [选择器](task/task7/CSS_Selector.md)
+  * 常见样式
+    * [知识点](task/task8/task.md)
+    * [html展示](https://zbhgit.github.io/JRG/task/task8/)
+    * [知识点2](task/task9/task.md)
+    * [CSS精灵图展示](https://zbhgit.github.io/JRG/task/task9/)\
+  * [float And BFC And position](task/task10/task.md)
+    * [html展示](https://zbhgit.github.io/JRG/task/task10/)
