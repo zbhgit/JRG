@@ -26,3 +26,6 @@
     * [html展示](https://zbhgit.github.io/JRG/task/task10/)
   * 布局
     * [单栏、双栏、三栏、圣杯、双飞翼等](https://zbhgit.github.io/JRG/task/task11/)  
+    * Flex布局
+      * [属性列表](tasl/flex/flex.md)
+      * [Flex布局展示](https://zbhgit.github.io/JRG/task/flex/) 

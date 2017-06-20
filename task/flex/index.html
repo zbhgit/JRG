@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <title>Flexbox</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      /* 启用flex */
+      flex-direction: column;
+      /* 垂直放置弹性项目 */
+      margin: 0;
+      background-color: #fff;
+      font-family: Lato, sans-serif;
+      color: #222;
+      font-size: 0.9em
+    }
+
+    main {
+      flex: 1 0 auto;
+      /* 填满剩余空间 */
+      display: flex;
+      /* 启动flex，成为一个flex容器 */
+    }
+
+    footer {
+      flex: 0 0 90px;
+      /* 设定固定宽度 不会放大和收缩*/
+      padding: 0 10px;
+      color: #fff;
+      background-color: rgba(61, 100, 158, 0.9);
+    }
+
+    main aside {
+      flex: 0 0 40px;
+      display: flex;
+      flex-direction: column;
+
+      justify-content: space-around;
+      /* 分配剩余空间 因为方向改变，其作用方向也改变了 */
+      align-items: center;
+      /* 将图标水平居中 */
+      background: #f2f2f2;
+    }
+
+    .content {
+      display: flex;
+      flex: 1 0 auto;
+      flex-direction: column;
+    }
+
+    .music-head {
+      flex: 0 0 280px;
+      display: flex;
+      padding: 40px;
+      background-color: #4e4e4e;
+    }
+
+    .music-list {
+      flex: 1 0 auto;
+      list-style: none;
+      padding: 5px 10px 0;
+    }
+
+    .music-list li {
+      display: flex;
+      padding: 0 20px;
+      min-height: 50px;
+    }
+
+    .music-list li:nth-child(2n) {
+      background-color: #f2f2f2;
+    }
+
+    .music-list li p {
+      flex: 0 0 25%;
+    }
+
+    .music-list li p span {
+      border: 1px solid black;
+      font-size: 0.6em;
+      padding: 3px;
+    }
+
+    .catty-music {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      font-weight: 300;
+      color: #fff;
+      padding-left: 50px
+    }
+
+    .catty-music div:nth-child(1) {
+      margin-bottom: auto;
+    }
+
+    .catty-music div:nth-child(2) {
+      margin-top: 0;
+    }
+
+    .catty-music div:nth-child(2) i.fa {
+      font-size: 1em;
+      padding: 0 0.7em;
+      font-weight: 300;
+    }
+
+    .catty-music div:nth-child(2) i.fa:first-child {
+      padding: 0 0 0.7em 0;
+    }
+
+    .catty-music div:nth-child(1) p:first-child {
+      font-size: 1.8em;
+      margin: 0 0 10px
+    }
+
+    .catty-music div:nth-child(1) p:not(first-child) {
+      font-size: 0.9em;
+      margin: 2px 0;
+    }
+
+    footer {
+      display: flex;
+    }
+
+    footer section {
+      flex: 1 0 auto;
+    }
+
+    footer section:first-child {
+      /*margin-right: auto;*/
+      display: flex;
+      align-items: center;
+    }
+
+    footer img {
+      width: 100px;
+      height: 70px;
+    }
+
+    footer div {
+      margin-left: 10px;
+    }
+
+    .music-control {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 10px;
+    }
+
+    .music-control i.fa {
+      font-size: 1.1em;
+      flex: 0 0 auto;
+    }
+
+/*
+========================================================
+Mobile responsiveness
+=========================================================
+*/
+
+  @media screen and (max-width: 64em) {
+    .sm-hide {
+      display: none;
+    }
+    .sm-text-center{
+      text-align: center;
+    }
+    .sm-text-right {
+      text-align: right;
+    }
+    section.content .music-head {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0;
+      background-color: #4e4e4e;
+    }
+    section.content .music-head .catty-music {
+      padding: 0;
+    }
+    .music-head img {
+      width: 150px;
+    }
+    .catty-music div:nth-child(1) p:first-child {
+      margin: 20px 0;
+      font-size: 1em;
+    }
+     .music-list li p {
+      flex: 0 0 50%;
+    }
+  }
+
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <!--用来包含主栏目-->
+    <aside class="sm-hide">
+      <!-- 侧边栏  图标来自font-awesome -->
+      <i class="fa fa-bars"></i>
+      <i class="fa fa-home"></i>
+      <i class="fa fa-search"></i>
+      <i class="fa fa-volume-up"></i>
+      <i class="fa fa-user"></i>
+      <i class="fa fa-spotify"></i>
+      <i class="fa fa-cog"></i>
+      <i class="fa fa-soundcloud"></i>
+    </aside>
+    <section class="content">
+      <!-- 主内容 -->
+      <div class="music-head">
+        <img src="img/xDSTaej.jpg">
+        <section class="catty-music">
+          <div>
+            <p class="sm-text-center">CattyBoard Top 100 Single Charts</p>
+            <p class="sm-hide">Unknown Artist</p>
+            <p class="sm-hide">@016 . Charts . 100 songs</p>
+          </div>
+          <div class="sm-text-center">
+            <i class="fa fa-play"> Play all</i>
+            <i class="fa fa-plus"> Add to</i>
+            <i class="fa fa-ellipsis-h"> More</i>
+          </div>
+        </section>
+      </div>
+      <ul class="music-list">
+        <!-- 列表项 包含专辑中歌曲列表 -->
+        <li>
+          <p>1. One Dance</p>
+          <p class="sm-hide">Crake feat CatKid & Cyla</p>
+          <p class="sm-text-right">2:54</p>
+          <p class="sm-hide"><span class="catty-cloud">CATTY CLOUD SYNC</span></p>
+        </li>
+        <li>
+          <p>2. Panda</p>
+          <p class="sm-hide">Cattee</p>
+          <p class="sm-text-right">4:06</p>
+          <p class="sm-hide"><span class="catty-cloud">CATTY CLOUD SYNC</span></p>
+        </li>
+        <li>
+          <p>3. Can't Stop the Feeling!</p>
+          <p class="sm-hide">Catin Cimberlake</p>
+          <p class="sm-text-right">3:56</p>
+          <p class="sm-hide"><span class="catty-cloud">CATTY CLOUD SYNC</span></p>
+        </li>
+        <li>
+          <p>4. Work From Home</p>
+          <p class="sm-hide">Cat Harmony feat Colla</p>
+          <p class="sm-text-right">3:34</p>
+          <p class="sm-hide"><span class="catty-cloud">CATTY CLOUD SYNC</span></p>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <!--用来包含音乐控制按钮和歌曲细节 -->
+    <section>
+      <img class="sm-hide" src="img/xDSTaej.jpg">
+      <div>
+        <p>If it Ain't Love</p>
+        <p>Catson Derulo</p>
+      </div>
+
+    </section>
+    <section class="music-control">
+      <i class="fa fa-step-backward"></i>
+      <i class="fa fa-pause"></i>
+      <i class="fa fa-step-forward"></i>
+      <i class="fa fa-rotate-right sm-hide"></i>
+      <i class="fa fa-random sm-hide"></i>
+    </section>
+  </footer>
+</body>
+
+</html>
