@@ -1,0 +1,20 @@
+
+.layout {
+  width: 945px;
+  margin: 0 auto;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 13px/1.5 Arial
+}

@@ -1,0 +1,95 @@
+
+header {
+  padding-bottom: 58px;
+}
+header nav {
+  position: fixed;
+  z-index: 1;
+  padding: 0 20px;
+  height: 58px;
+  width: 100%;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #fff;
+}
+header .logo {
+  float: left;
+  margin-top: 18px;
+  margin-right: 20px;
+}
+header .logo img{
+  width: 55px;
+  height: 26px;
+}
+header .search {
+  float: left;
+  margin-top: 12px;
+}
+header .home {
+  float: left;
+  margin-left: 65px;
+  margin-right: 45px;
+  color: #ea6f5a;
+  line-height: 58px;
+  font-size: 17px;
+  text-decoration: none;
+}
+header .download {
+  margin-right:45px; 
+  color: #333;
+  float: left;
+  line-height: 58px;
+  font-size: 17px;
+  text-decoration: none;
+}
+header .login {
+  float: right;
+  margin-left: 20px;
+  margin-top: 18px;
+  color: #969696;
+  text-decoration: none;
+}
+
+header .register {
+  float: right;
+  margin-left: 20px;
+  margin-top: 12px;
+}
+header .write {
+  float: right;
+  margin-left: 20px;
+  margin-top: 12px;
+}
+
+main:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+main .layout >.aside {
+  width: 200px;
+  float: right;
+}
+main .layout >.content {
+  margin-right: 220px;
+}
+
+main .carousel {
+  margin: 0 auto;
+}
+
+main .theme-labels {
+  margin-top: 30px;
+}
+
+main .post-lists {
+  margin-top: 30px;
+}
+
+main .recommend {
+  margin-top: 30px;
+}
+main .recommend .button {
+  margin-top: 30px;
+}
+
+
