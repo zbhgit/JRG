@@ -69,4 +69,4 @@
 7.   [form表单简单介绍](http://www.jianshu.com/p/a870ba51dfb8)
   
 
-8. [表单效果链接](https://zbhgit.github.io/learn-task/task5/)
+8. [表单效果链接](https://zbhgit.github.io/JRG/task/task5/)
